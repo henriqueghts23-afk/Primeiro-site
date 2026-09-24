@@ -1,0 +1,1097 @@
+Código do site "ecociclo"
+
+Vou criar um site institucional completo e profissional para a EcoCiclo. Primeiro, vou ler as instruções da Skill de visualização para garantir a conformidade com todos os requisitos técnicos.Agora vou ler os arquivos de referência obrigatórios para o design system e templates.Agora vou criar o site institucional completo da EcoCiclo com todas as seções, funcionalidades e design profissional solicitados.```html>
+<html style="margin:0;padding:0;">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+(function(){
+  var s = document.createElement('style');
+  s.textContent = `
+    :root{
+      --verde-escuro:#064e3b;
+      --verde-medio:#059669;
+      --verde-claro:#10b981;
+      --verde-tecnologico:#0891b2;
+      --branco:#ffffff;
+      --cinza-grafite:#1e293b;
+      --bg:#f7fcf9;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --accent:#059669;
+      --accent-soft:rgba(5,150,105,.12);
+      --accent2:#0891b2;
+      --accent2-soft:rgba(8,145,178,.12);
+      --border:rgba(15,23,42,.08);
+      --whatsapp-number:"5500000000000";
+    }
+    *{font-family:'Nunito',sans-serif;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);line-height:1.6}
+    .reveal{opacity:0;transform:translateY(24px);animation:fadeUp .7s ease forwards}
+    .reveal:nth-child(2){animation-delay:.1s}
+    .reveal:nth-child(3){animation-delay:.2s}
+    .reveal:nth-child(4){animation-delay:.3s}
+    .reveal:nth-child(5){animation-delay:.4s}
+    .reveal:nth-child(6){animation-delay:.5s}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    .card-hover{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+    .card-hover:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(5,150,105,.12);border-color:var(--accent)}
+    .btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:12px;font-weight:700;border:none;cursor:pointer;transition:all .25s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:15px}
+    .btn-primary:hover{background:var(--verde-escuro);transform:translateY(-1px);box-shadow:0 8px 24px rgba(5,150,105,.25)}
+    .btn-secondary{background:transparent;color:var(--text);padding:12px 28px;border-radius:12px;font-weight:700;border:2px solid var(--border);cursor:pointer;transition:all .25s ease;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:15px}
+    .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+    .nav-link{color:var(--text);text-decoration:none;font-weight:600;font-size:14px;padding:8px 4px;position:relative;transition:color .2s ease}
+    .nav-link:hover{color:var(--accent)}
+    .nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width .3s ease}
+    .nav-link:hover::after{width:100%}
+    .section-title{font-size:clamp(24px,3.5vw,36px);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:12px}
+    .section-subtitle{color:var(--muted);font-size:16px;max-width:640px;margin-bottom:48px}
+    .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+    .timeline-line{position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2))}
+    .timeline-dot{width:40px;height:40px;border-radius:50%;background:var(--accent-soft);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:14px;flex-shrink:0;position:relative;z-index:1}
+    .faq-item{border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s ease;background:var(--card)}
+    .faq-item:hover{border-color:var(--accent)}
+    .faq-question{width:100%;padding:18px 22px;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:left;font-weight:700;color:var(--text);font-size:15px}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 22px;color:var(--muted);font-size:14px;line-height:1.7}
+    .faq-answer.open{max-height:400px;padding:0 22px 20px}
+    .faq-icon{transition:transform .3s ease;color:var(--accent);flex-shrink:0;margin-left:12px}
+    .faq-icon.open{transform:rotate(45deg)}
+    .form-input{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;background:var(--card);color:var(--text);font-size:14px;transition:border-color .2s ease,box-shadow .2s ease;outline:none}
+    .form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    .form-label{display:block;font-weight:700;color:var(--text);font-size:14px;margin-bottom:6px}
+    .form-select{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;background:var(--card);color:var(--text);font-size:14px;outline:none;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+    .form-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    .upload-area{border:2px dashed var(--border);border-radius:14px;padding:32px;text-align:center;cursor:pointer;transition:all .25s ease;background:var(--accent-soft)}
+    .upload-area:hover{border-color:var(--accent);background:rgba(5,150,105,.08)}
+    .upload-area.dragover{border-color:var(--accent);background:var(--accent-soft);transform:scale(1.01)}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:700}
+    .status-open{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;background:rgba(16,185,129,.15);color:#047857;font-size:13px;font-weight:700}
+    .status-closed{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;background:rgba(220,38,38,.1);color:#b91c1c;font-size:13px;font-weight:700}
+    .pulse-dot{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+    .mobile-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:var(--card);box-shadow:-8px 0 32px rgba(0,0,0,.1);transition:right .35s ease;z-index:100;padding:80px 24px 24px;display:flex;flex-direction:column;gap:4px}
+    .mobile-menu.open{right:0}
+    .mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .3s ease;z-index:99}
+    .mobile-overlay.open{opacity:1;pointer-events:auto}
+    .whatsapp-float{position:absolute;right:24px;bottom:24px;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .25s ease,box-shadow .25s ease;z-index:50}
+    .whatsapp-float:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+    .image-preview{position:relative;display:inline-block;margin:4px;border-radius:10px;overflow:hidden}
+    .image-preview img{width:90px;height:90px;object-fit:cover;display:block}
+    .image-preview button{position:absolute;top:4px;right:4px;width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,.7);color:#fff;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
+    .gradient-text{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .circuit-bg{background-image:radial-gradient(circle at 20% 50%,var(--accent-soft) 0%,transparent 50%),radial-gradient(circle at 80% 20%,var(--accent2-soft) 0%,transparent 50%)}
+    .cycle-arrow{animation:rotate 20s linear infinite}
+    @keyframes rotate{to{transform:rotate(360deg)}}
+    .tab-btn{padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;transition:all .2s ease;border:none;background:transparent;color:var(--muted)}
+    .tab-btn.active{background:var(--accent-soft);color:var(--accent)}
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+    .checkbox-lg{width:18px;height:18px;accent-color:var(--accent);cursor:pointer}
+    ::-webkit-scrollbar{width:10px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--accent-soft);border-radius:5px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+  `;
+  document.head.appendChild(s);
+})();
+</script>
+<div style="background-color:transparent;box-sizing:border-box;position:relative;min-height:100%;">
+<div style="color:var(--text);background:var(--bg);position:relative;">
+
+  <!-- HEADER / NAV -->
+  <header style="position:sticky;top:0;z-index:90;background:rgba(247,252,249,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;">
+      <a href="#inicio" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <div style="width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-3-6.7L21 8"/>
+            <path d="M21 3v5h-5"/>
+            <path d="M7 12h.01"/>
+            <path d="M11 16h.01"/>
+            <path d="M16 8h.01"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:18px;color:var(--text);letter-spacing:-.02em;">EcoCiclo</div>
+          <div style="font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.08em;">ECONOMIA CIRCULAR</div>
+        </div>
+      </a>
+      <nav style="display:flex;align-items:center;gap:28px;" class="hidden md:flex">
+        <a href="#inicio" class="nav-link">Início</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#servicos" class="nav-link">Serviços</a>
+        <a href="#como-funciona" class="nav-link">Como funciona</a>
+        <a href="#economia-circular" class="nav-link">Economia Circular</a>
+        <a href="#certificacoes" class="nav-link">Certificações</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="#orcamento" class="btn-primary hidden md:inline-flex" style="padding:10px 22px;font-size:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+          Solicitar orçamento
+        </a>
+        <button id="menuBtn" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;" class="md:hidden" aria-label="Abrir menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileOverlay" class="mobile-overlay"></div>
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#inicio" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Início</a>
+    <a href="#sobre" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Sobre a EcoCiclo</a>
+    <a href="#servicos" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Serviços</a>
+    <a href="#como-funciona" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Como funciona</a>
+    <a href="#economia-circular" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Economia Circular</a>
+    <a href="#certificacoes" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Certificações</a>
+    <a href="#orcamento" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Solicitar orçamento</a>
+    <a href="#empresas" class="nav-link" style="font-size:16px;padding:12px 0;border-bottom:1px solid var(--border);">Para empresas</a>
+    <a href="#contato" class="nav-link" style="font-size:16px;padding:12px 0;">Contato</a>
+    <a href="#orcamento" class="btn-primary" style="margin-top:20px;justify-content:center;">Solicitar orçamento</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="inicio" class="circuit-bg" style="padding:80px 24px 60px;position:relative;overflow:hidden;">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:60px;align-items:center;" class="lg:grid-cols-2">
+      <div class="reveal">
+        <div class="chip">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          Tecnologia + Sustentabilidade
+        </div>
+        <h1 style="font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.1;margin:20px 0 18px;letter-spacing:-.02em;">
+          Seu eletrônico pode ter um <span class="gradient-text">novo ciclo</span>.
+        </h1>
+        <p style="color:var(--muted);font-size:18px;line-height:1.7;margin-bottom:32px;max-width:560px;">
+          Consertamos, recuperamos e damos novas possibilidades aos equipamentos eletrônicos, promovendo tecnologia, economia e sustentabilidade.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px;">
+          <a href="#orcamento" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            Solicitar orçamento
+          </a>
+          <a href="#sobre" class="btn-secondary">
+            Conheça a EcoCiclo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:24px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:15px;">Atendimento confiável</div>
+              <div style="font-size:12px;color:var(--muted);">Avaliação técnica especializada</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:var(--accent2-soft);display:flex;align-items:center;justify-content:center;color:var(--accent2);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:15px;">Economia circular</div>
+              <div style="font-size:12px;color:var(--muted);">Prolongando vida útil</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(212,114,74,.12);display:flex;align-items:center;justify-content:center;color:#d4724a;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5M17 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:15px;">PF e PJ</div>
+              <div style="font-size:12px;color:var(--muted);">Pessoas físicas e empresas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="position:relative;">
+        <div style="position:relative;width:100%;max-width:520px;margin:0 auto;aspect-ratio:1;">
+          <svg viewBox="0 0 400 400" style="width:100%;height:100%;">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:var(--accent2);stop-opacity:1"/>
+              </linearGradient>
+              <linearGradient id="gradSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:.15"/>
+                <stop offset="100%" style="stop-color:var(--accent2);stop-opacity:.15"/>
+              </linearGradient>
+            </defs>
+            <circle cx="200" cy="200" r="170" fill="none" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 6"/>
+            <circle cx="200" cy="200" r="140" fill="none" stroke="url(#grad1)" stroke-width="2.5" stroke-dasharray="8 4" class="cycle-arrow" style="transform-origin:200px 200px;"/>
+            <circle cx="200" cy="200" r="100" fill="url(#gradSoft)"/>
+            <g transform="translate(200,200)">
+              <circle cx="0" cy="-130" r="34" fill="var(--card)" stroke="url(#grad1)" stroke-width="2"/>
+              <text x="0" y="-125" text-anchor="middle" font-size="22" fill="var(--text)">📱</text>
+              <text x="0" y="-108" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">Equipamento</text>
+            </g>
+            <g transform="translate(200,200)">
+              <circle cx="113" cy="-65" r="34" fill="var(--card)" stroke="url(#grad1)" stroke-width="2"/>
+              <text x="113" y="-60" text-anchor="middle" font-size="22" fill="var(--text)">🔍</text>
+              <text x="113" y="-43" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">Diagnóstico</text>
+            </g>
+            <g transform="translate(200,200)">
+              <circle cx="113" cy="65" r="34" fill="var(--card)" stroke="url(#grad1)" stroke-width="2"/>
+              <text x="113" y="70" text-anchor="middle" font-size="22" fill="var(--text)">🔧</text>
+              <text x="113" y="87" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">Reparo</text>
+            </g>
+            <g transform="translate(200,200)">
+              <circle cx="0" cy="130" r="34" fill="var(--card)" stroke="url(#grad1)" stroke-width="2"/>
+              <text x="0" y="135" text-anchor="middle" font-size="22" fill="var(--text)">♻️</text>
+              <text x="0" y="152" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">Reutilização</text>
+            </g>
+            <g transform="translate(200,200)">
+              <circle cx="-113" cy="65" r="34" fill="var(--card)" stroke="url(#grad1)" stroke-width="2"/>
+              <text x="-113" y="70" text-anchor="middle" font-size="22" fill="var(--text)">🔄</text>
+              <text x="-113" y="87" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">Novo ciclo</text>
+            </g>
+            <g transform="translate(200,200)">
+              <circle cx="-113" cy="-65" r="34" fill="var(--card)" stroke="url(#grad1)" stroke-width="2"/>
+              <text x="-113" y="-60" text-anchor="middle" font-size="22" fill="var(--text)">🌿</text>
+              <text x="-113" y="-43" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text)">Sustent.</text>
+            </g>
+            <text x="200" y="195" text-anchor="middle" font-size="14" font-weight="800" fill="var(--accent)">EcoCiclo</text>
+            <text x="200" y="215" text-anchor="middle" font-size="10" fill="var(--muted)">Consertar · Reaproveitar</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE FAZEMOS / SERVIÇOS -->
+  <section id="servicos" style="padding:80px 24px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Nossos serviços</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">O que fazemos</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Soluções completas para equipamentos eletrônicos, do conserto à destinação ambientalmente adequada.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:20px;" class="md:grid-cols-2 lg:grid-cols-3">
+        <div class="card-hover reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:17px;margin-bottom:8px;">Conserto de celulares</h3>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">Diagnóstico e reparo de aparelhos celulares e seus componentes, com peças de qualidade e garantia.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:var(--accent2-soft);display:flex;align-items:center;justify-content:center;color:var(--accent2);margin-bottom:18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:17px;margin-bottom:8px;">Conserto de computadores</h3>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">Manutenção, diagnóstico, recuperação e reparos em computadores de mesa e componentes internos.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:rgba(212,114,74,.12);display:flex;align-items:center;justify-content:center;color:#d4724a;margin-bottom:18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:17px;margin-bottom:8px;">Conserto de televisores</h3>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">Diagnóstico e manutenção de televisores e equipamentos de imagem, com avaliação técnica.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:rgba(16,185,129,.15);display:flex;align-items:center;justify-content:center;color:#047857;margin-bottom:18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:17px;margin-bottom:8px;">Recuperação de equipamentos</h3>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">Avaliação de equipamentos que apresentam defeitos e podem voltar a ser utilizados plenamente.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:rgba(8,145,178,.12);display:flex;align-items:center;justify-content:center;color:#0e7490;margin-bottom:18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:17px;margin-bottom:8px;">Desmontagem técnica</h3>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">Desmontagem responsável de equipamentos que não possuem viabilidade de reparo, com separação de materiais.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px;">
+          <div style="width:48px;height:48px;border-radius:12px;background:rgba(5,150,105,.12);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10"/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:17px;margin-bottom:8px;">Reaproveitamento de componentes</h3>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">Identificação e aproveitamento de componentes que ainda possuem utilidade técnica e funcional.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px;grid-column:1/-1;" class="lg:col-span-3">
+          <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start;" class="md:flex-row md:items-center md:justify-between">
+            <div style="display:flex;gap:18px;align-items:flex-start;">
+              <div style="width:48px;height:48px;border-radius:12px;background:rgba(6,78,59,.12);display:flex;align-items:center;justify-content:center;color:var(--verde-escuro);flex-shrink:0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+              </div>
+              <div>
+                <h3 style="font-weight:800;font-size:17px;margin-bottom:6px;">Destinação adequada</h3>
+                <p style="color:var(--muted);font-size:14px;line-height:1.6;max-width:600px;">Encaminhamento dos materiais e resíduos para destinação ambientalmente adequada, conforme aplicável e dentro das normas vigentes.</p>
+              </div>
+            </div>
+            <a href="#orcamento" class="btn-primary" style="flex-shrink:0;">Ver todos os serviços</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO ORÇAMENTO PRINCIPAL -->
+  <section id="orcamento" style="padding:80px 24px;background:var(--bg);">
+    <div style="max-width:1000px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Solicitação de avaliação</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">Solicite uma avaliação do seu equipamento</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Preencha os dados abaixo e envie fotos do seu equipamento. Nossa equipe analisará e retornará com o orçamento.</p>
+      </div>
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:clamp(20px,4vw,40px);box-shadow:0 4px 24px rgba(0,0,0,.04);">
+        <form id="formOrcamento" onsubmit="return false;">
+          <div style="display:grid;grid-template-columns:1fr;gap:18px;" class="md:grid-cols-2">
+            <div>
+              <label class="form-label" for="nome">Nome completo *</label>
+              <input type="text" id="nome" class="form-input" required placeholder="Seu nome">
+            </div>
+            <div>
+              <label class="form-label" for="email">E-mail *</label>
+              <input type="email" id="email" class="form-input" required placeholder="seu@email.com">
+            </div>
+            <div>
+              <label class="form-label" for="whatsapp">WhatsApp *</label>
+              <input type="tel" id="whatsapp" class="form-input" required placeholder="(00) 00000-0000">
+            </div>
+            <div>
+              <label class="form-label" for="tipoCliente">Tipo de cliente *</label>
+              <select id="tipoCliente" class="form-select" required>
+                <option value="">Selecione...</option>
+                <option value="pf">Pessoa Física</option>
+                <option value="pj">Empresa</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="tipoEquipamento">Tipo de equipamento *</label>
+              <select id="tipoEquipamento" class="form-select" required>
+                <option value="">Selecione...</option>
+                <option>Celular</option>
+                <option>Computador</option>
+                <option>Notebook</option>
+                <option>Televisão</option>
+                <option>Monitor</option>
+                <option>Impressora</option>
+                <option>Outros</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="marca">Marca</label>
+              <input type="text" id="marca" class="form-input" placeholder="Ex: Samsung, Apple, LG">
+            </div>
+            <div>
+              <label class="form-label" for="modelo">Modelo</label>
+              <input type="text" id="modelo" class="form-input" placeholder="Ex: Galaxy S23, iPhone 14">
+            </div>
+            <div>
+              <label class="form-label" for="estado">Estado aparente do equipamento</label>
+              <select id="estado" class="form-select">
+                <option value="">Selecione...</option>
+                <option>Excelente</option>
+                <option>Bom</option>
+                <option>Regular</option>
+                <option>Com avarias visíveis</option>
+              </select>
+            </div>
+            <div class="md:col-span-2">
+              <label class="form-label" for="problema">Descrição do problema *</label>
+              <textarea id="problema" class="form-input" required rows="3" placeholder="Descreva o que acontece com o equipamento..."></textarea>
+            </div>
+            <div>
+              <label class="form-label">Já foi aberto/consertado anteriormente?</label>
+              <div style="display:flex;gap:16px;margin-top:8px;">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--text);">
+                  <input type="radio" name="consertado" value="sim" style="accent-color:var(--accent);"> Sim
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--text);">
+                  <input type="radio" name="consertado" value="nao" style="accent-color:var(--accent);"> Não
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--text);">
+                  <input type="radio" name="consertado" value="naosei" style="accent-color:var(--accent);"> Não sei
+                </label>
+              </div>
+            </div>
+            <div class="md:col-span-2">
+              <label class="form-label" for="observacoes">Observações adicionais</label>
+              <textarea id="observacoes" class="form-input" rows="2" placeholder="Alguma informação adicional que possa ajudar..."></textarea>
+            </div>
+          </div>
+
+          <div style="margin-top:24px;">
+            <label class="form-label">Adicione fotos do equipamento</label>
+            <div id="uploadArea" class="upload-area">
+              <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" style="display:none;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+                <div style="width:52px;height:52px;border-radius:14px;background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--accent);">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div style="font-weight:700;color:var(--text);">Clique para selecionar ou arraste as imagens aqui</div>
+                <div style="font-size:12px;color:var(--muted);">Formatos aceitos: JPG, JPEG, PNG, WEBP — Tamanho máximo: 5MB por arquivo</div>
+              </div>
+            </div>
+            <div id="imagePreviewContainer" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;"></div>
+            <div style="margin-top:12px;padding:12px 16px;background:rgba(8,145,178,.08);border-left:3px solid var(--accent2);border-radius:0 8px 8px 0;font-size:13px;color:var(--muted);">
+              <strong style="color:var(--accent2);">Aviso:</strong> Envie fotos que mostrem o equipamento e, se possível, o problema apresentado. Não envie documentos pessoais ou informações sensíveis.
+            </div>
+          </div>
+
+          <div style="margin-top:24px;display:flex;align-items:flex-start;gap:10px;">
+            <input type="checkbox" id="consentimento" class="checkbox-lg" required>
+            <label for="consentimento" style="font-size:13px;color:var(--muted);cursor:pointer;line-height:1.5;">
+              Li e concordo com a <a href="#" style="color:var(--accent);font-weight:700;text-decoration:none;">Política de Privacidade</a> e autorizo o tratamento dos meus dados pela EcoCiclo para fins de atendimento e orçamento.
+            </label>
+          </div>
+
+          <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;">
+            <div style="font-size:12px;color:var(--muted);">* Campos obrigatórios</div>
+            <button type="submit" class="btn-primary" onclick="enviarOrcamento()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Enviar solicitação
+            </button>
+          </div>
+        </form>
+        <div id="confirmacaoOrcamento" style="display:none;text-align:center;padding:40px 20px;">
+          <div style="width:72px;height:72px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);margin:0 auto 20px;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-weight:800;font-size:22px;margin-bottom:10px;">Solicitação enviada com sucesso!</h3>
+          <p style="color:var(--muted);font-size:15px;max-width:480px;margin:0 auto;">Recebemos as informações do seu equipamento. Nossa equipe poderá analisar os dados enviados e entrar em contato em breve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A ECOCICLO -->
+  <section id="sobre" style="padding:80px 24px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:60px;align-items:center;" class="lg:grid-cols-2">
+      <div class="reveal">
+        <div class="eyebrow">Sobre a EcoCiclo</div>
+        <h2 class="section-title">Tecnologia, manutenção e responsabilidade ambiental</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.75;margin-bottom:20px;">
+          A EcoCiclo nasceu com a proposta de unir tecnologia, manutenção eletrônica e responsabilidade ambiental. Em vez de enxergar um equipamento com defeito apenas como um problema, buscamos avaliar suas possibilidades de reparo, recuperação, reaproveitamento ou destinação adequada.
+        </p>
+        <p style="color:var(--muted);font-size:16px;line-height:1.75;margin-bottom:28px;">
+          Nossa proposta de valor é simples e poderosa: <strong style="color:var(--text);">"Consertar, reaproveitar e transformar o ciclo dos eletrônicos."</strong> Buscamos prolongar a vida útil dos equipamentos antes que eles se transformem em resíduos, além de promover o reaproveitamento de componentes e a destinação adequada do que não puder ser recuperado.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="padding:16px;border-radius:12px;background:var(--accent-soft);">
+            <div style="font-weight:800;color:var(--accent);font-size:15px;">História</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px;">[Campo editável — administração]</div>
+          </div>
+          <div style="padding:16px;border-radius:12px;background:var(--accent2-soft);">
+            <div style="font-weight:800;color:var(--accent2);font-size:15px;">Equipe</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px;">[Campo editável — administração]</div>
+          </div>
+          <div style="padding:16px;border-radius:12px;background:rgba(212,114,74,.1);">
+            <div style="font-weight:800;color:#d4724a;font-size:15px;">Oficina</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px;">[Campo editável — administração]</div>
+          </div>
+          <div style="padding:16px;border-radius:12px;background:rgba(16,185,129,.12);">
+            <div style="font-weight:800;color:#047857;font-size:15px;">Projetos</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px;">[Campo editável — administração]</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="position:relative;">
+        <div style="aspect-ratio:4/3;border-radius:20px;background:linear-gradient(135deg,var(--accent-soft),var(--accent2-soft));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <svg viewBox="0 0 400 300" style="width:85%;height:85%;">
+            <defs>
+              <linearGradient id="gradSobre" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:var(--accent);stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:var(--accent2);stop-opacity:1"/>
+              </linearGradient>
+            </defs>
+            <rect x="40" y="60" width="320" height="180" rx="12" fill="var(--card)" stroke="url(#gradSobre)" stroke-width="2"/>
+            <rect x="60" y="80" width="120" height="80" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+            <circle cx="120" cy="120" r="20" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <path d="M110 120l7 7 14-14" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+            <rect x="200" y="80" width="140" height="35" rx="6" fill="var(--accent2-soft)"/>
+            <rect x="200" y="125" width="100" height="10" rx="4" fill="var(--border)"/>
+            <rect x="200" y="140" width="130" height="10" rx="4" fill="var(--border)"/>
+            <rect x="60" y="180" width="280" height="45" rx="8" fill="rgba(16,185,129,.1)"/>
+            <path d="M80 202 Q120 192 160 202 T240 202 T320 202" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <path d="M80 212 Q120 202 160 212 T240 212 T320 212" fill="none" stroke="var(--accent2)" stroke-width="2"/>
+            <g transform="translate(340,40)">
+              <circle r="18" fill="var(--card)" stroke="url(#gradSobre)" stroke-width="2"/>
+              <path d="M-8 -2 L-2 4 L8 -6" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+        <div style="position:absolute;bottom:-20px;left:-20px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 20px;box-shadow:0 8px 24px rgba(0,0,0,.08);">
+          <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700;">Proposta de valor</div>
+          <div style="font-weight:800;color:var(--text);margin-top:4px;">Consertar · Reaproveitar · Transformar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSÃO VISÃO VALORES -->
+  <section style="padding:80px 24px;background:var(--bg);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Nossa essência</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">Missão, Visão e Valores</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Os princípios que guiam cada decisão e atendimento da EcoCiclo.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:40px;" class="md:grid-cols-2">
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;border-top:4px solid var(--accent);">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+            <div style="width:48px;height:48px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <h3 style="font-weight:800;font-size:20px;">Missão</h3>
+          </div>
+          <p style="color:var(--muted);font-size:15px;line-height:1.7;">Prolongar a vida útil dos equipamentos eletrônicos por meio de soluções de reparo, recuperação e reaproveitamento, contribuindo para uma economia mais circular.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;border-top:4px solid var(--accent2);">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+            <div style="width:48px;height:48px;border-radius:12px;background:var(--accent2-soft);display:flex;align-items:center;justify-content:center;color:var(--accent2);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 style="font-weight:800;font-size:20px;">Visão</h3>
+          </div>
+          <p style="color:var(--muted);font-size:15px;line-height:1.7;">Ser reconhecida como uma empresa inovadora em soluções para equipamentos eletrônicos e economia circular.</p>
+        </div>
+      </div>
+      <h3 class="reveal" style="font-weight:800;font-size:20px;margin-bottom:20px;text-align:center;">Nossos Valores</h3>
+      <div style="display:grid;grid-template-columns:1fr;gap:16px;" class="sm:grid-cols-2 lg:grid-cols-3">
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="width:38px;height:38px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4 style="font-weight:800;font-size:15px;">Sustentabilidade</h4>
+          </div>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6;">Buscar reduzir o descarte prematuro e estimular o reaproveitamento.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="width:38px;height:38px;border-radius:10px;background:var(--accent2-soft);display:flex;align-items:center;justify-content:center;color:var(--accent2);flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <h4 style="font-weight:800;font-size:15px;">Transparência</h4>
+          </div>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6;">Comunicação clara com clientes e parceiros em todas as etapas.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(212,114,74,.12);display:flex;align-items:center;justify-content:center;color:#d4724a;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h4 style="font-weight:800;font-size:15px;">Responsabilidade</h4>
+          </div>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6;">Atuar com responsabilidade técnica, ambiental e empresarial.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(16,185,129,.12);display:flex;align-items:center;justify-content:center;color:#047857;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <h4 style="font-weight:800;font-size:15px;">Inovação</h4>
+          </div>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6;">Buscar novas soluções para reparo, recuperação e reaproveitamento.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(6,78,59,.12);display:flex;align-items:center;justify-content:center;color:var(--verde-escuro);flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h4 style="font-weight:800;font-size:15px;">Confiança</h4>
+          </div>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6;">Construir relações duradouras com clientes, empresas e parceiros.</p>
+        </div>
+        <div class="card-hover reveal" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="width:38px;height:38px;border-radius:10px;background:rgba(8,145,178,.12);display:flex;align-items:center;justify-content:center;color:#0e7490;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+            </div>
+            <h4 style="font-weight:800;font-size:15px;">Economia Circular</h4>
+          </div>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6;">Valorizar a extensão da vida útil dos produtos e o aproveitamento de materiais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA - TIMELINE -->
+  <section id="como-funciona" style="padding:80px 24px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Processo</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">Como funciona</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Um processo simples e transparente, do contato à solução final.</p>
+      </div>
+      <div style="position:relative;padding-left:60px;">
+        <div class="timeline-line"></div>
+        <div class="reveal" style="display:flex;gap:20px;margin-bottom:36px;position:relative;">
+          <div class="timeline-dot">01</div>
+          <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;">
+            <h4 style="font-weight:800;font-size:16px;margin-bottom:6px;">Você entra em contato</h4>
+            <p style="color:var(--muted);font-size:14px;">Inicie o atendimento pelo formulário, WhatsApp ou telefone.</p>
+          </div>
+        </div>
+        <div class="reveal" style="display:flex;gap:20px;margin-bottom:36px;position:relative;">
+          <div class="timeline-dot">02</div>
+          <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;">
+            <h4 style="font-weight:800;font-size:16px;margin-bottom:6px;">Envia as informações e fotos</h4>
+            <p style="color:var(--muted);font-size:14px;">Compartilhe dados do equipamento e imagens para análise preliminar.</p>
+          </div>
+        </div>
+        <div class="reveal" style="display:flex;gap:20px;margin-bottom:36px;position:relative;">
+          <div class="timeline-dot">03</div>
+          <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;">
+            <h4 style="font-weight:800;font-size:16px;margin-bottom:6px;">A EcoCiclo realiza a avaliação</h4>
+            <p style="color:var(--muted);font-size:14px;">Nossa equipe técnica avalia a viabilidade de reparo ou reaproveitamento.</p>
+          </div>
+        </div>
+        <div class="reveal" style="display:flex;gap:20px;margin-bottom:36px;position:relative;">
+          <div class="timeline-dot">04</div>
+          <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;">
+            <h4 style="font-weight:800;font-size:16px;margin-bottom:6px;">O equipamento é reparado, recuperado ou desmontado</h4>
+            <p style="color:var(--muted);font-size:14px;">Conforme sua viabilidade técnica e econômica, definimos a melhor solução.</p>
+          </div>
+        </div>
+        <div class="reveal" style="display:flex;gap:20px;position:relative;">
+          <div class="timeline-dot">05</div>
+          <div style="flex:1;background:var(--accent-soft);border:1px solid var(--accent);border-radius:14px;padding:20px;">
+            <h4 style="font-weight:800;font-size:16px;margin-bottom:6px;color:var(--verde-escuro);">Novo ciclo ou destinação adequada</h4>
+            <p style="color:var(--muted);font-size:14px;">O equipamento retorna ao uso ou seus materiais seguem para destinação ambientalmente adequada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECONOMIA CIRCULAR -->
+  <section id="economia-circular" style="padding:80px 24px;background:var(--bg);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Sustentabilidade</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">O que é economia circular?</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Um modelo que busca manter produtos e materiais em uso pelo maior tempo possível, eliminando o desperdício.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:32px;" class="lg:grid-cols-2">
+        <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(220,38,38,.1);display:flex;align-items:center;justify-content:center;color:#dc2626;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </div>
+            <h3 style="font-weight:800;font-size:18px;">Modelo Linear — Descarte</h3>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:20px;">
+            <div style="flex:1;min-width:100px;padding:14px;border-radius:10px;background:rgba(220,38,38,.06);text-align:center;font-weight:700;font-size:13px;color:#b91c1c;border:1px solid rgba(220,38,38,.15);">Extrair</div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div style="flex:1;min-width:100px;padding:14px;border-radius:10px;background:rgba(220,38,38,.06);text-align:center;font-weight:700;font-size:13px;color:#b91c1c;border:1px solid rgba(220,38,38,.15);">Produzir</div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div style="flex:1;min-width:100px;padding:14px;border-radius:10px;background:rgba(220,38,38,.06);text-align:center;font-weight:700;font-size:13px;color:#b91c1c;border:1px solid rgba(220,38,38,.15);">Consumir</div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div style="flex:1;min-width:100px;padding:14px;border-radius:10px;background:rgba(220,38,38,.06);text-align:center;font-weight:700;font-size:13px;color:#b91c1c;border:1px solid rgba(220,38,38,.15);">Descartar</div>
+          </div>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">No modelo linear, os recursos são extraídos, transformados em produtos, usados e depois descartados como resíduos.</p>
+        </div>
+        <div class="reveal" style="background:var(--card);border:2px solid var(--accent);border-radius:18px;padding:32px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:var(--accent-soft);"></div>
+          <div style="position:relative;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+              <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+              </div>
+              <h3 style="font-weight:800;font-size:18px;">Ciclo Circular — EcoCiclo</h3>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:20px;">
+              <div style="padding:10px 14px;border-radius:10px;background:var(--accent-soft);text-align:center;font-weight:700;font-size:12px;color:var(--accent);border:1px solid var(--accent);">Produzir</div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div style="padding:10px 14px;border-radius:10px;background:var(--accent-soft);text-align:center;font-weight:700;font-size:12px;color:var(--accent);border:1px solid var(--accent);">Usar</div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div style="padding:10px 14px;border-radius:10px;background:var(--accent-soft);text-align:center;font-weight:700;font-size:12px;color:var(--accent);border:1px solid var(--accent);">Consertar</div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div style="padding:10px 14px;border-radius:10px;background:var(--accent-soft);text-align:center;font-weight:700;font-size:12px;color:var(--accent);border:1px solid var(--accent);">Reutilizar</div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div style="padding:10px 14px;border-radius:10px;background:var(--accent-soft);text-align:center;font-weight:700;font-size:12px;color:var(--accent);border:1px solid var(--accent);">Recuperar</div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div style="padding:10px 14px;border-radius:10px;background:var(--accent-soft);text-align:center;font-weight:700;font-size:12px;color:var(--accent);border:1px solid var(--accent);">Reciclar</div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div style="padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));text-align:center;font-weight:700;font-size:12px;color:#fff;">Novo ciclo</div>
+            </div>
+            <p style="color:var(--muted);font-size:14px;line-height:1.6;">A proposta da EcoCiclo é contribuir para prolongar a vida útil dos equipamentos e favorecer o reaproveitamento sempre que técnica e economicamente viável.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO AMBIENTAL -->
+  <section style="padding:80px 24px;background:linear-gradient(135deg,var(--verde-escuro),var(--accent));color:#fff;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:700;margin-bottom:10px;">Nosso impacto</div>
+        <h2 style="font-size:clamp(24px,3.5vw,36px);font-weight:800;line-height:1.2;margin-bottom:12px;">Impacto ambiental</h2>
+        <p style="color:rgba(255,255,255,.75);font-size:16px;max-width:640px;margin:0 auto 48px;">Acompanhe os resultados do nosso trabalho em prol da economia circular e do meio ambiente.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:16px;" class="sm:grid-cols-2 lg:grid-cols-4">
+        <div class="reveal" style="background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:28px;text-align:center;">
+          <div style="font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:6px;">+ [NÚMERO]</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">Equipamentos recuperados</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:6px;">[Campo editável]</div>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:28px;text-align:center;">
+          <div style="font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:6px;">+ [NÚMERO]</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">Equipamentos consertados</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:6px;">[Campo editável]</div>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:28px;text-align:center;">
+          <div style="font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:6px;">+ [NÚMERO] kg</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">Materiais reaproveitados</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:6px;">[Campo editável]</div>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:28px;text-align:center;">
+          <div style="font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:6px;">+ [NÚMERO]</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">Destinados corretamente</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:6px;">[Campo editável]</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px;" class="sm:grid-cols-3">
+        <div class="reveal" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:22px;text-align:center;">
+          <div style="font-size:26px;font-weight:800;margin-bottom:4px;">[NÚMERO]</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.75);">Componentes reutilizados</div>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:22px;text-align:center;">
+          <div style="font-size:26px;font-weight:800;margin-bottom:4px;">[NÚMERO]</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.75);">Empresas atendidas</div>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:22px;text-align:center;">
+          <div style="font-size:26px;font-weight:800;margin-bottom:4px;">[NÚMERO]</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.75);">Clientes atendidos</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:24px;font-size:12px;color:rgba(255,255,255,.6);">
+        Os números aparecem somente quando forem cadastrados pela administração.
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICAÇÕES -->
+  <section id="certificacoes" style="padding:80px 24px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Documentos</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">Certificações, Licenças e Compromissos Ambientais</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Documentos oficiais disponibilizados conforme emitidos e validados.</p>
+      </div>
+      <div class="reveal" style="background:var(--bg);border:2px dashed var(--border);border-radius:18px;padding:60px 32px;text-align:center;">
+        <div style="width:64px;height:64px;border-radius:16px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);margin:0 auto 20px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+        </div>
+        <h3 style="font-weight:800;font-size:18px;margin-bottom:10px;">Em breve</h3>
+        <p style="color:var(--muted);font-size:15px;max-width:520px;margin:0 auto;line-height:1.6;">
+          Os documentos ambientais e certificações da EcoCiclo serão disponibilizados nesta área conforme forem oficialmente emitidos e validados.
+        </p>
+      </div>
+      <div style="margin-top:24px;padding:16px 20px;background:var(--accent-soft);border-radius:12px;font-size:13px;color:var(--muted);text-align:center;">
+        <strong style="color:var(--accent);">Estrutura preparada:</strong> Cada documento poderá conter: Nome, Órgão emissor, Número, Datas, Status, botão "Visualizar documento" e selo "Documento verificado pela administração".
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREA PARA EMPRESAS -->
+  <section id="empresas" style="padding:80px 24px;background:var(--bg);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Atendimento corporativo</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">Soluções para empresas</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Soluções personalizadas para gestão, manutenção e destinação de equipamentos eletrônicos da sua empresa.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:40px;align-items:start;" class="lg:grid-cols-5">
+        <div class="reveal lg:col-span-2">
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;">
+            <h3 style="font-weight:800;font-size:18px;margin-bottom:18px;">O que oferecemos</h3>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;margin-top:2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span style="font-size:14px;color:var(--text);">Manutenção de equipamentos em lote</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;margin-top:2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span style="font-size:14px;color:var(--text);">Avaliação de equipamentos sem uso</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;margin-top:2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span style="font-size:14px;color:var(--text);">Recuperação de ativos e triagem</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;margin-top:2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span style="font-size:14px;color:var(--text);">Desmontagem técnica e reaproveitamento</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:28px;height:28px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;margin-top:2px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span style="font-size:14px;color:var(--text);">Encaminhamento de resíduos para destinação adequada</span>
+              </div>
+            </div>
+            <a href="#formEmpresas" class="btn-primary" style="margin-top:24px;width:100%;justify-content:center;">Quero uma solução para minha empresa</a>
+          </div>
+        </div>
+        <div class="reveal lg:col-span-3">
+          <div id="formEmpresas" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:clamp(20px,3vw,32px);">
+            <h3 style="font-weight:800;font-size:18px;margin-bottom:20px;">Formulário para empresas</h3>
+            <form onsubmit="return false;">
+              <div style="display:grid;grid-template-columns:1fr;gap:16px;" class="md:grid-cols-2">
+                <div>
+                  <label class="form-label">Nome da empresa *</label>
+                  <input type="text" class="form-input" required placeholder="Razão social">
+                </div>
+                <div>
+                  <label class="form-label">Nome do responsável *</label>
+                  <input type="text" class="form-input" required placeholder="Nome completo">
+                </div>
+                <div>
+                  <label class="form-label">E-mail corporativo *</label>
+                  <input type="email" class="form-input" required placeholder="responsavel@empresa.com">
+                </div>
+                <div>
+                  <label class="form-label">WhatsApp *</label>
+                  <input type="tel" class="form-input" required placeholder="(00) 00000-0000">
+                </div>
+                <div>
+                  <label class="form-label">CNPJ</label>
+                  <input type="text" class="form-input" placeholder="00.000.000/0000-00">
+                </div>
+                <div>
+                  <label class="form-label">Quantidade aproximada</label>
+                  <input type="text" class="form-input" placeholder="Ex: 50 equipamentos">
+                </div>
+                <div>
+                  <label class="form-label">Tipo de equipamentos</label>
+                  <input type="text" class="form-input" placeholder="Ex: Notebooks, monitores, impressoras">
+                </div>
+                <div>
+                  <label class="form-label">Serviço desejado</label>
+                  <select class="form-select">
+                    <option value="">Selecione...</option>
+                    <option>Manutenção em lote</option>
+                    <option>Avaliação de ativos</option>
+                    <option>Desmontagem e reaproveitamento</option>
+                    <option>Destinação de resíduos</option>
+                    <option>Solução completa</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="form-label">Mensagem</label>
+                  <textarea class="form-input" rows="3" placeholder="Conte-nos sobre a necessidade da sua empresa..."></textarea>
+                </div>
+              </div>
+              <div style="margin-top:18px;display:flex;align-items:flex-start;gap:10px;">
+                <input type="checkbox" class="checkbox-lg" required>
+                <label style="font-size:13px;color:var(--muted);cursor:pointer;line-height:1.5;">
+                  Concordo com a <a href="#" style="color:var(--accent);font-weight:700;text-decoration:none;">Política de Privacidade</a> e autorizo o contato da EcoCiclo.
+                </label>
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top:22px;" onclick="alert('Solicitação empresarial enviada! Em breve entraremos em contato.')">
+                Enviar solicitação empresarial
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM / GALERIA -->
+  <section style="padding:80px 24px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:32px;">
+        <div>
+          <div class="eyebrow">Redes sociais</div>
+          <h2 class="section-title" style="margin:0 0 8px;">Acompanhe a EcoCiclo</h2>
+          <p style="color:var(--muted);font-size:15px;">Fique por dentro dos nossos projetos e ações ambientais.</p>
+        </div>
+        <a href="https://www.instagram.com/ecociclo6.serv/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:12px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;font-weight:700;text-decoration:none;transition:transform .2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @ecociclo6.serv
+        </a>
+      </div>
+      <div class="reveal" style="display:grid;grid-template-columns:1fr;gap:16px;" class="sm:grid-cols-2 lg:grid-cols-4">
+        <div style="aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,var(--accent-soft),var(--accent2-soft));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px;border:1px solid var(--border);">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div style="font-weight:700;font-size:13px;">Antes e depois</div>
+          <div style="font-size:11px;margin-top:4px;">[Galeria — administração]</div>
+        </div>
+        <div style="aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,var(--accent2-soft),rgba(212,114,74,.1));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px;border:1px solid var(--border);">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--accent2);margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div style="font-weight:700;font-size:13px;">Bancada de manutenção</div>
+          <div style="font-size:11px;margin-top:4px;">[Galeria — administração]</div>
+        </div>
+        <div style="aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,rgba(212,114,74,.1),rgba(16,185,129,.1));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px;border:1px solid var(--border);">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;color:#d4724a;margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M7 7h10"/></svg>
+          </div>
+          <div style="font-weight:700;font-size:13px;">Componentes</div>
+          <div style="font-size:11px;margin-top:4px;">[Galeria — administração]</div>
+        </div>
+        <div style="aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,rgba(16,185,129,.1),var(--accent-soft));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px;border:1px solid var(--border);">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;color:#047857;margin-bottom:10px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div style="font-weight:700;font-size:13px;">Ações ambientais</div>
+          <div style="font-size:11px;margin-top:4px;">[Galeria — administração]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section style="padding:80px 24px;background:var(--bg);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Relatos</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">O que nossos clientes dizem</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Depoimentos reais de clientes e parceiros da EcoCiclo.</p>
+      </div>
+      <div class="reveal" style="background:var(--card);border:2px dashed var(--border);border-radius:18px;padding:60px 32px;text-align:center;">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);margin:0 auto 20px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 style="font-weight:800;font-size:18px;margin-bottom:10px;">Em breve</h3>
+        <p style="color:var(--muted);font-size:15px;max-width:480px;margin:0 auto;line-height:1.6;">
+          Os depoimentos de clientes serão exibidos nesta área conforme forem cadastrados pela administração.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding:80px 24px;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:880px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;">
+        <div class="eyebrow">Dúvidas comuns</div>
+        <h2 class="section-title" style="margin:0 auto 12px;">Perguntas frequentes</h2>
+        <p class="section-subtitle" style="margin:0 auto 48px;">Respostas para as perguntas mais comuns sobre nossos serviços.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Quais equipamentos a EcoCiclo conserta?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Atendemos celulares, computadores, notebooks, televisores, monitores, impressoras e outros equipamentos eletroeletrônicos. Cada caso é avaliado individualmente para verificar a viabilidade técnica e econômica do reparo.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Como funciona o orçamento?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Você preenche o formulário de solicitação com os dados do equipamento e envia fotos. Nossa equipe realiza uma análise preliminar e entra em contato com o orçamento. Em alguns casos, pode ser necessário o envio físico do equipamento para avaliação detalhada.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Posso enviar fotos do equipamento?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Sim, e recomendamos! Envie fotos que mostrem o equipamento de diferentes ângulos e, se possível, o problema apresentado. Isso ajuda nossa equipe a fazer uma avaliação mais precisa. Aceitamos formatos JPG, JPEG, PNG e WEBP.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>A EcoCiclo atende empresas?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Sim! Temos uma área específica de soluções para empresas, incluindo manutenção em lote, avaliação de ativos, desmontagem técnica, reaproveitamento de componentes e encaminhamento de resíduos para destinação adequada.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Vocês trabalham com equipamentos que não podem ser consertados?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Sim. Quando um equipamento não tem viabilidade de reparo, avaliamos a possibilidade de desmontagem técnica para reaproveitamento de componentes e encaminhamento dos materiais para destinação ambientalmente adequada.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>O que acontece com equipamentos sem possibilidade de reparo?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Realizamos a desmontagem técnica responsável, separando componentes que ainda podem ser reaproveitados. Os materiais restantes são encaminhados para destinação ambientalmente adequada, conforme normas aplicáveis.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Como funciona a destinação dos resíduos?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Os materiais e resíduos são encaminhados para destinação ambientalmente adequada, conforme aplicável, respeitando a legislação vigente e buscando sempre o menor impacto ambiental possível.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Quanto tempo demora uma avaliação?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">A avaliação preliminar com base nas informações e fotos enviadas geralmente é feita em até 3 dias úteis. Caso seja necessária avaliação física do equipamento, o prazo é informado no contato inicial.</div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Como entrar em contato?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">Você pode entrar em contato pelo formulário do site, pelo WhatsApp (botão flutuante no canto inferior direito), pelo e-mail ou comparecendo durante nosso horário de atendimento. Veja todos os contatos na seção Contato abaixo.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORÁRIO + CONTATO -->
+  <section id="contato" style="padding:80px 24px;background:var(--bg);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;" class="lg:grid-cols-5">
+      <div class="reveal lg:col-span-2">
+        <div class="eyebrow">Atendimento</div>
+        <h2 class="section-title">Horário e contato</h2>
+        <p class="section-subtitle" style="margin-bottom:28px;">Entre em contato conosco. Estamos prontos para ajudar.</p>
+        
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <h3 style="font-weight:800;font-size:16px;">Horário de atendimento</h3>
+            <span id="statusAtendimento" class="status-open"><span class="pulse-dot"></span>Verificando...</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;">
+            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border);">
+              <span style="color:var(--text);font-weight:600;">Segunda a sexta</span>
+              <span style="color:var(--muted);">08h às 17h</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border);">
+              <span style="color:var(--text);font-weight:600;">Sábado</span>
+              <span style="color:#b91c1c;font-weight:600;">Fechado</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="color:var(--text);font-weight:600;">Domingo</span>
+              <span style="color:#b91c1c;font-weight:600;">Fechado</span>
+            </div>
+          </div>
+          <div style="margin-top:14px;font-size:12px;color:var(--muted);">Horário de Brasília — atualizado automaticamente</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <a href="https://www.instagram.com/ecociclo6.serv/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:border-color .2s ease;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;color:#fff;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div style="font-size:12px;color:var(--muted);">Instagram</div>
+              <div style="font-weight:700;font-size:14px;">@ecociclo6.serv</div>
+            </div>
+          </a>
+          <div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:14px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:#25d366;display:flex;align-items:center;justify-content:center;color:#fff;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-2.394-7.463c-.063-.13-1.41.82-1.565.979-.15.158-.262.234-.487.11-.225-.122-.922-.343-1.753-1.08-.832-.737-1.39-1.648-1.553-1.928-.163-.28-.036-.43.12-.569.14-.125.315-.327.473-.492.158-.165.21-.28.312-.462.102-.182.052-.34-.026-.481-.079-.141-.709-1.71-.97-2.341-.258-.63-.518-.544-.713-.554-.195-.01-.415-.015-.63-.015-.215 0-.567.079-.863.397-.297.318-1.125 1.1-1.125 2.688 0 1.588 1.15 3.125 1.313 3.345.162.22 2.28 3.475 5.532 4.87.75.32 1.335.512 1.792.65.687.207 1.315.179 1.802.108.548-.08 1.688-.692 1.928-1.362.24-.67.24-1.245.168-1.368-.072-.123-.258-.195-.54-.343"/></svg>
+            </div>
+            <div>
+              <div style="font-size:12px;color:var(--muted);">WhatsApp</div>
+              <div style="font-weight:700;font-size:14px;">[Config
